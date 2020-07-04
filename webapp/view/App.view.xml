@@ -1,0 +1,39 @@
+<mvc:View controllerName="elite.controller.App" 
+	xmlns="sap.m" 
+	xmlns:form="sap.ui.layout.form" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns:core="sap.ui.core" displayBlock="true">
+	<Shell appWidthLimited="false">
+		<App id="app">
+			<pages>
+				<Page title="Elite Market Box Management System">
+					<FlexBox height="100%" direction="Row" alignItems="Center">
+						<items>
+							<FlexBox direction="Column" width="100%" alignItems="Center" justifyContent="Center">
+								<items>
+									<Panel headerText="User Login">
+										<content>
+											<form:SimpleForm id="searchForm" editable="false" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1">
+												<form:content>
+													<Label visible="false"/>
+													<Input id="username" width="100%" editable="true" maxLength="40" placeholder="User ID"/>
+													<Label visible="false"/>
+													<Input id="password" type="Password" width="100%" editable="true" maxLength="40" placeholder="Password"/>
+													<Label visible="false"/>
+													<Button type="Emphasized" text="Login" press="onPressLogin"/>
+													<Label visible="false"/>
+													<MessageStrip id="loginStrip" text="Invalid Username/Password. Please try again later." visible="false" type="Error" showCloseButton="true"/>
+												</form:content>
+											</form:SimpleForm>
+											<Text text="Copyright © 2020 Elite Market. All Rights Reserved" />
+										</content>
+									</Panel>
+								</items>
+							</FlexBox>
+						</items>
+					</FlexBox>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>

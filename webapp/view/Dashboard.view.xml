@@ -1,0 +1,70 @@
+<mvc:View controllerName="elite.controller.Dashboard" 
+	xmlns="sap.m" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns:tnt="sap.tnt" height="100%">
+	<tnt:ToolPage id="toolPage">
+		<tnt:header>
+			<tnt:ToolHeader>
+				<Button id="sideNavigationToggleButton" icon="sap-icon://menu2" type="Transparent" press=".onSideNavButtonPress">
+					<layoutData>
+						<OverflowToolbarLayoutData priority="NeverOverflow" />
+					</layoutData>
+				</Button>
+				<tnt:ToolHeaderUtilitySeparator />
+				<ToolbarSpacer>
+					<layoutData>
+						<OverflowToolbarLayoutData priority="NeverOverflow" minWidth="20px" />
+					</layoutData>
+				</ToolbarSpacer>
+				<Button text="Logout" type="Transparent" press=".onPressLogout">
+					<layoutData>
+						<OverflowToolbarLayoutData priority="NeverOverflow" />
+					</layoutData>
+				</Button>
+			</tnt:ToolHeader>
+		</tnt:header>
+		<tnt:sideContent>
+			<tnt:SideNavigation expanded="true" selectedKey="{/selectedKey}" itemSelect=".onItemSelect">
+				<tnt:NavigationList items="{path: '/navigation'}">
+					<tnt:NavigationListItem text="{title}" icon="{icon}" enabled="{enabled}" expanded="{expanded}" items="{items}" key="{key}">
+						<tnt:NavigationListItem text="{title}" key="{key}" enabled="{enabled}" />
+					</tnt:NavigationListItem>
+				</tnt:NavigationList>
+				<tnt:fixedItem>
+					<tnt:NavigationList items="{path: '/fixedNavigation'}">
+						<tnt:NavigationListItem text="{title}" icon="{icon}" />
+					</tnt:NavigationList>
+				</tnt:fixedItem>
+			</tnt:SideNavigation>
+		</tnt:sideContent>
+		<tnt:mainContents>
+			<NavContainer id="pageContainer" initialPage="home">
+				<pages>
+					<ScrollContainer id="home" horizontal="false" vertical="true" height="100%">
+						<mvc:XMLView viewName="elite.view.Home"/>
+					</ScrollContainer>
+
+					<ScrollContainer id="search" horizontal="false" vertical="true" height="100%">
+						<mvc:XMLView viewName="elite.view.Search"/>
+					</ScrollContainer>
+
+					<ScrollContainer id="lend_box" horizontal="false" vertical="true" height="100%">
+						<mvc:XMLView viewName="elite.view.LendBox"/>
+					</ScrollContainer>
+
+					<ScrollContainer id="return_box" horizontal="false" vertical="true" height="100%">
+						<mvc:XMLView viewName="elite.view.ReturnBox"/>
+					</ScrollContainer>
+
+					<ScrollContainer id="addViewBox" horizontal="false" vertical="true" height="100%">
+						<mvc:XMLView viewName="elite.view.AddViewBox"/>
+					</ScrollContainer>
+
+					<ScrollContainer id="addViewConsumer" horizontal="false" vertical="true" height="100%">
+						<mvc:XMLView viewName="elite.view.AddViewConsumer"/>
+					</ScrollContainer>
+				</pages>
+			</NavContainer>
+		</tnt:mainContents>
+	</tnt:ToolPage>
+</mvc:View>
