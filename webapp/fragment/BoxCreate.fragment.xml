@@ -1,0 +1,26 @@
+<core:FragmentDefinition class="sapUiSizeCompact"
+    xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:u="sap.ui.unified"
+    xmlns="sap.m">
+    <Dialog id="oCreateBoxDialog" draggable="false" resizable="false" title="Create Box" afterClose="onPressCancel">
+        <content>
+            <Panel class="noBorderBottomPanel">
+                <content>
+                    <form:SimpleForm id="createBoxForm" editable="true" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1">
+                        <form:content>
+                            <Label text="Box Number"/>
+                            <Input id="createBoxNoInput" width="100%" maxLength="4"/>
+                            <Label text="Box Name"/>
+                            <Input id="createBoxNameInput" width="100%" maxLength="15"/>
+                        </form:content>
+                    </form:SimpleForm>
+                </content>
+            </Panel>
+        </content>
+        <buttons>
+            <Button press="onPressCreate" text="Create" type="Emphasized" id="idCreateBtn" />
+            <Button press="onPressCreateCancel" text="Cancel" id="cancelCreateBtn"/>
+        </buttons>
+    </Dialog>
+</core:FragmentDefinition>

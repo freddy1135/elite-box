@@ -1,8 +1,39 @@
-<mvc:View xmlns="sap.m" 
-    xmlns:mvc="sap.ui.core.mvc">
-    <Panel headerText="Add/View Box" class="sapUiResponsiveMargin" width="auto">
-        <content>
-            <Button text="Sample" press=".onShowHello" class="myCustomButton"/>
-        </content>
+<mvc:View xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc" controllerName="elite.controller.AddViewBox">
+    <Panel>
+        <Table id="idBoxTable" mode="SingleSelectLeft" selectionChange="onSelectionChange" 
+        items="{
+			path: '/boxes',
+			sorter: {
+				path: 'BoxNo'
+			}
+		}">
+            <headerToolbar>
+                <OverflowToolbar>
+                    <content>
+                        <Title text="Box Data" level="H2"/>
+                        <ToolbarSpacer />
+                        <Button id="boxEditBtn" text="Edit" press="onEdit" enabled="false" />
+                        <Button text="Create" type="Emphasized" press="onCreate"/>
+                    </content>
+                </OverflowToolbar>
+            </headerToolbar>
+            <columns>
+                <Column>
+                    <Text text="Box No." />
+                </Column>
+                <Column>
+                    <Text text="Box Name"/>
+                </Column>
+            </columns>
+            <items>
+                <ColumnListItem>
+                    <cells>
+                        <Text text="{BoxNo}"/>
+                        <Text text="{Name}"/>
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
     </Panel>
 </mvc:View>

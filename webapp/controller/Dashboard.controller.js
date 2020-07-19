@@ -4,17 +4,12 @@ sap.ui.define([
 	'sap/ui/core/Fragment',
 	'sap/ui/core/mvc/Controller',
 	'sap/ui/model/json/JSONModel',
-	'sap/m/Popover',
-	'sap/m/Button',
-	'sap/m/library',
 	"sap/ui/core/UIComponent",
 	"sap/m/MessageBox",
 	"elite/model/SideNavigationData"
-], function (jQuery, Device, Fragment, Controller, JSONModel, Popover, Button, mobileLibrary, UIComponent, MessageBox, SideNavigationData) {
+], function (jQuery, Device, Fragment, Controller, JSONModel, UIComponent, MessageBox, SideNavigationData) {
 	"use strict";
 
-	var ButtonType = mobileLibrary.ButtonType,
-		PlacementType = mobileLibrary.PlacementType;
 
 	var CController = Controller.extend("elite.controller.Dashboard", {
 		model: new JSONModel(),
@@ -52,7 +47,6 @@ sap.ui.define([
 						window.sessionStorage.setItem("UserLoggedIn", "false");
 						var oRouter = UIComponent.getRouterFor(this);
 						oRouter.navTo("login");
-
 					}
 				}.bind(this)
 			});

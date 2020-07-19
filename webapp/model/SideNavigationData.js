@@ -1,7 +1,7 @@
 sap.ui.define([], function () {
     "use strict";
     return {
-        "selectedKey": "page1",
+        "selectedKey": "home",
         "navigation": [{
                 "title": "Home",
                 "icon": "sap-icon://home",
@@ -29,6 +29,7 @@ sap.ui.define([], function () {
                 "title": "Settings",
                 "icon": "sap-icon://settings",
                 "expanded": false,
+                "key": "addViewBox",
                 "items": [{
                         "title": "Add/View Boxes",
                         "key": "addViewBox"

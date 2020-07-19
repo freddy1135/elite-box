@@ -1,0 +1,27 @@
+<core:FragmentDefinition class="sapUiSizeCompact"
+    xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:u="sap.ui.unified"
+    xmlns="sap.m">
+    <Dialog id="oEditBoxDialog" draggable="false" resizable="false" title="Edit Box" afterClose="onPressCancel">
+        <content>
+            <Panel class="noBorderBottomPanel">
+                <content>
+                    <form:SimpleForm id="editBoxForm" editable="true" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1">
+                        <form:content>
+                            <Label text="Box Number"/>
+                            <Input id="boxNoInput" width="100%" value="{BoxNo}" maxLength="4"/>
+                            <Label text="Box Name"/>
+                            <Input id="boxNameInput" width="100%" value="{Name}" maxLength="15"/>
+                        </form:content>
+                    </form:SimpleForm>
+                </content>
+            </Panel>
+        </content>
+        <buttons>
+            <Button press="onPressDelete" icon="sap-icon://delete" type="Reject" id="idDeleteBtn" />
+            <Button press="onPressSubmit" text="Submit" type="Emphasized" id="idSubmitBtn" />
+            <Button press="onPressCancel" text="Cancel" id="cancelEditBtn"/>
+        </buttons>
+    </Dialog>
+</core:FragmentDefinition>
