@@ -38,7 +38,7 @@
 			</tnt:SideNavigation>
 		</tnt:sideContent>
 		<tnt:mainContents>
-			<NavContainer id="pageContainer" initialPage="addViewBox">
+			<NavContainer id="pageContainer" initialPage="addViewConsumer">
 				<pages>
 					<ScrollContainer id="home" horizontal="false" vertical="true" height="100%">
 						<mvc:XMLView viewName="elite.view.Home"/>

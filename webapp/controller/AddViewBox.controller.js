@@ -71,7 +71,7 @@ sap.ui.define([
                     oDialog.open();
                 }.bind(this));
             } else {
-                this.byId("oEditBoxDialog").getModel().refresh(true);
+                this.byId("oEditBoxDialog").bindElement(sPath);
                 this.byId("oEditBoxDialog").open();
             }
         },
@@ -102,7 +102,7 @@ sap.ui.define([
         },
 
         onPressSubmit: function (oEvent) {
-            var sID = this.byId("oEditBoxDialog").getBindingContext().getModel().getData().boxes[0].id,
+            var sID = this.byId("oEditBoxDialog").getBindingContext().getProperty("id"),
                 cBoxRef = this.getBoxCollection().doc(sID);
             cBoxRef.update({
                 "BoxNo": this.byId("boxNoInput").getValue(),
@@ -110,13 +110,14 @@ sap.ui.define([
             }).then(function () {
                 MessageToast.show("Box Details Updated");
                 this.byId("oEditBoxDialog").close();
+                this.byId("idBoxTable").fireSelectionChange();
             }.bind(this)).catch(function (error) {
                 MessageToast.show("Error: " + error);
             });
         },
 
         onPressDelete: function (oEvent) {
-            var sID = this.byId("oEditBoxDialog").getBindingContext().getModel().getData().boxes[0].id,
+            var sID = this.byId("oEditBoxDialog").getBindingContext().getProperty("id"),
                 cBoxRef = this.getBoxCollection().doc(sID);
             cBoxRef.delete().then(function () {
                 MessageToast.show("Box Deleted");
@@ -135,13 +136,19 @@ sap.ui.define([
             }).then(function () {
                 MessageToast.show("Box Created");
                 this.byId("oCreateBoxDialog").close();
+                this.byId("idBoxTable").fireSelectionChange();
             }.bind(this)).catch(function (error) {
                 MessageToast.show("Error: " + error);
             });
         },
 
         onPressCancel: function (oEvent) {
-            this.byId("oEditBoxDialog").close();
+            if (this.byId("oEditBoxDialog")) {
+                this.byId("oEditBoxDialog").close();
+            }
+            if (this.byId("oCreateBoxDialog")) {
+                this.byId("oCreateBoxDialog").close();
+            }
         },
 
         onPressCreateCancel: function (oEvent) {
