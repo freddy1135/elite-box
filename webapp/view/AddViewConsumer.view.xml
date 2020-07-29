@@ -25,12 +25,16 @@
                 <Column>
                     <Text text="Consumer Name"/>
                 </Column>
+                <Column>
+                    <Text text="Consumer Phone"/>
+                </Column>
             </columns>
             <items>
                 <ColumnListItem>
                     <cells>
                         <Text text="{ConsumerNo}"/>
                         <Text text="{Name}"/>
+                        <Text text="{Phone}"/>
                     </cells>
                 </ColumnListItem>
             </items>

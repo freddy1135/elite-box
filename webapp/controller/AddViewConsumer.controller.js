@@ -94,6 +94,7 @@ sap.ui.define([
             }
             this.byId("createConsumerNoInput").setValue();
             this.byId("createConsumerNameInput").setValue();
+            this.byId("createConsumerPhoneInput").setValue();
         },
 
         onSelectionChange: function (oEvent) {
@@ -106,7 +107,8 @@ sap.ui.define([
                 cConsumerRef = this.getConsumerCollection().doc(sID);
             cConsumerRef.update({
                 "ConsumerNo": this.byId("consumerNoInput").getValue(),
-                "Name": this.byId("consumerNameInput").getValue()
+                "Name": this.byId("consumerNameInput").getValue(),
+                "Phone": this.byId("consumerPhoneInput").getValue()
             }).then(function () {
                 MessageToast.show("Consumer Details Updated");
                 this.byId("oEditConsumerDialog").close();
@@ -132,7 +134,8 @@ sap.ui.define([
             var cConsumer = this.getConsumerCollection();
             cConsumer.add({
                 "ConsumerNo": this.byId("createConsumerNoInput").getValue(),
-                "Name": this.byId("createConsumerNameInput").getValue()
+                "Name": this.byId("createConsumerNameInput").getValue(),
+                "Phone": this.byId("createConsumerPhoneInput").getValue()
             }).then(function () {
                 MessageToast.show("Consumer Created");
                 this.byId("oCreateConsumerDialog").close();

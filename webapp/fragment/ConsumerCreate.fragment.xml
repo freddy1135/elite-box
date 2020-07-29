@@ -13,6 +13,8 @@
                             <Input id="createConsumerNoInput" width="100%" maxLength="4"/>
                             <Label text="Consumer Name"/>
                             <Input id="createConsumerNameInput" width="100%" maxLength="15"/>
+                            <Label text="Consumer Phone"/>
+                            <Input id="createConsumerPhoneInput" width="100%" maxLength="10"/>
                         </form:content>
                     </form:SimpleForm>
                 </content>
