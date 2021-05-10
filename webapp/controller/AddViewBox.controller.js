@@ -51,7 +51,6 @@ sap.ui.define([
                         aBoxData.boxes.splice(index, 1);
                     }
                 });
-
                 this.getView().getModel().refresh(true);
                 this.byId("idBoxTable").getBinding("items").refresh();
             }.bind(this));
